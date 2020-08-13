@@ -40,7 +40,7 @@ To save you from having to count the items above, you can assume that length of 
 
 i.e. is31Flavors(originalFlavors) will return TRUE.*/
 
-function is31Flavors(){
+function is31Flavors(array){
     console.log(originalFlavors.length);
     if (originalFlavors.length == 31) {
         console.log(true);
@@ -50,6 +50,13 @@ function is31Flavors(){
 
 }
 is31Flavors();
+
+
+
+
+
+
+
 /* Task 2: Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
 Your function should accept:
@@ -61,12 +68,14 @@ Your function should add the flavor to the front of the array and console.log th
 
 For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"] */ 
 
-function addFlavor(){
-    originalFlavors.unshift("Rainbow Sherbet");
-    console.log(originalFlavors);
+function addFlavor(array, flavor){
+flavor = [...originalFlavors];
+flavor.unshift("Rainbow Sherbet");
+console.log(flavor);
+console.log(originalFlavors);
 
 }
-addFlavor();
+addFlavor()
 
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
@@ -79,8 +88,7 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/ 
 
-function removeLastFlavor(){
-
+function removeLastFlavor(array){
    originalFlavors.pop();
    console.log(originalFlavors);
 
@@ -96,7 +104,7 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(){
+function getFlavorByIndex(array, index){
 
 console.log(originalFlavors[4]);
 
@@ -120,14 +128,15 @@ Hint: You can use .splice() for this
 
 */
 
-function removeFlavorByName(){
-var takenOff = originalFlavors.splice(5, 1);
-console.log(takenOff);
-console.log(originalFlavors)
-
+function removeFlavorByName(array, string){
+for (let i = 0; i < array.length; i++){
+    if (array[i] == string){
+        array.splice(i, 1);
+    }
+}
+return array;
 }
 
-removeFlavorByName();
 
 
 
@@ -301,8 +310,22 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+function getRandomFlavors(arr1, arr2, arr3, arr4){
+
+
+
+ let combined = [...arr1, ...arr2, ...arr3, ...arr4]   
+let randomFlavors = []
+
+for( let i = 0; i < 31; i++){
+let randomNumber = Math.round(Math.random() * combined.length)
+randomFlavors.push(combined[randomNumber]);
+}
+return randomFlavors
+}
+
+
 
     /*code here*/
 
-}
+
