@@ -154,10 +154,10 @@ Your function should accept:
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
 
-function copy(){
+function copy(newarr, startingArray){
+const newArr = [...originalFlavors];
+console.log(newArr);
 
-var newMenu = originalFlavors.slice();
-console.log(newMenu);
 }
 copy();
 
